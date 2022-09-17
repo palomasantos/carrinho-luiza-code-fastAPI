@@ -82,6 +82,10 @@ async def deletar_usuario(id: int):
         return OK
     else:
         return 'bad'
+### NÃO ESTOU CONSEGUINDO FAZER ESSA PARTE   
+@app.get("/usuarios/emails/")
+async def retornar_emails(dominio: str):
+    return FALHA
 
 @app.post("/usuario/endereco")
 async def criar_endereco(endereco:Endereco):
