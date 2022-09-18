@@ -1,0 +1,95 @@
+# testando conexão
+GET http://localhost:8000/ 
+
+#######################################
+############  usuário  ################
+#######################################
+
+# Criar usuário 
+POST http://127.0.0.1:8000/usuario HTTP/1.1
+content-type: application/json
+
+{
+    "id": 1,
+    "nome": "paloma",
+    "email": "paloma@hotmail.com",
+    "senha": "123"
+}
+
+
+###
+# Consultar usuário pelo ID
+GET http://127.0.0.1:8000/usuario/1 HTTP/1.1
+content-type: application/json
+
+###
+# Consultar usuario pelo nome
+GET http://127.0.0.1:8000/usuario/paloma HTTP/1.1
+content-type: application/json
+
+###
+# Deletar usuário
+DELETE http://127.0.0.1:8000/usuario/2 HTTP/1.1
+
+#######################################
+############  endereço  ###############
+#######################################
+
+# Criar endereço
+POST http://127.0.0.1:8000/usuario/endereco HTTP/1.1
+content-type: application/json
+
+{   "id":2,
+    "rua": "sebastiao",
+    "cep": "9kkjhg",
+    "cidade": "São Paulo",
+    "estado": "SP"
+}
+
+###
+# Pesquisar endereço
+GET http://127.0.0.1:8000/usuario/endereco/2 HTTP/1.1
+content-type: application/json
+
+###
+# Remover endereço
+DELETE http://127.0.0.1:8000/usuario/endereco/2 HTTP/1.1
+
+#######################################
+############  produto  ################
+#######################################
+
+# Criar produto
+POST http://127.0.0.1:8000/produto HTTP/1.1
+content-type: application/json
+
+{
+    "id": 2,
+    "nome": "Sorvete",
+    "descricao": "Doce gelado",
+    "preco": 9.99
+}
+
+###
+# Remover produto pelo código
+DELETE http://127.0.0.1:8000/produto/2 HTTP/1.1
+
+###
+# Criar carrinho
+POST http://127.0.0.1:8000/carrinho HTTP/1.1
+content-type: application/json
+
+{
+    "id_usuario": 3,
+    "preco_total": 15.5,
+    "id_produtos":[6,"dorvete","banana",5],
+    "quantidade_de_produtos": 1
+}
+
+###
+# Remover carrinho
+DELETE  http://127.0.0.1:8000/carrinho HTTP/1.1
+
+###
+
+GET http://127.0.0.1:8000/carrinho/3 HTTP/1.1
